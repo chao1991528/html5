@@ -3,6 +3,7 @@
  var bgImg = new Image();
  var ane;
  var fruit;
+ var mom;
 function game(){
     init();
     last_time = Date.now();
@@ -21,6 +22,8 @@ function init(){
     ane.init();
     fruit = new fruitObj();
     fruit.init();
+    mom = new momObj();
+    mom.init();
 }
 function gameloop(){
     requestAnimFrame(gameloop);
@@ -29,5 +32,8 @@ function gameloop(){
     last_time = now;
     drawBackground();
     ane.draw();
+    fruitMonitor();
     fruit.draw();
+    ctx1.clearRect(0,0,canWidth,canHeight);
+    mom.draw();
 }
